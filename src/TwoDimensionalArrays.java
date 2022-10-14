@@ -87,7 +87,7 @@ public class TwoDimensionalArrays {
         for(int i = 0; i < names.length; i++) {
             for (int j = 0; j < subjects.length; j++) {
 
-                System.out.println("What is " + names[i] +",s grade in " +
+                System.out.println("What is " + names[i] +"'s grade in " +
                         subjects[j] +"?");
                 int grade = s.nextInt();
 //                int grade = 90;
