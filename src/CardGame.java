@@ -133,14 +133,38 @@ public class CardGame {
                 System.out.println("Card " + i + " - " + rank + " of " + suit);
             }
 
+            //outer loop - iterate through all cards in hand
+            //inner loop - iterate through all cards after card i
+            //if the ranks of card i and card j match, increment a counter variable
+
+            for (int i = 0; i < hand.length; i++) {
+                //get rank of card i
+                int iValue = hand[i];
+                int iRank = iValue % 13;
+
+                int sameRank = 0;
+                //reset for each new i value to count how many
+                // more cards there are of the same rank
+
+                for (int j = i; j < hand.length; j++) {
+                    int jValue = hand[j];
+                    int jRank = jValue % 13;
+
+                    //check if the two cards have the same rank
+                    if (iRank == jRank) {
+                        sameRank++;
+                    }
+
+                }
+
+                if (sameRank == 4)
+                    //stops the while loop
+                    fourOfKind = true;
+            }
+
 
         }
 
 
-
-
-
-
-
-        }
+    }
 }
