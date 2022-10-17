@@ -71,8 +71,9 @@ public class TwoDimensionalArrays {
             System.out.print(n + " ");
         }
         System.out.println();
+        System.out.println();
 
-        String [] names  = {"fred", "alice", "joe"};
+        String [] names  = {"fred", "alice", "joey"};
         String [] subjects = {"math", "science", "ap lunch", "computer science"};
 
         //2d array representing each person's grades in the given subjects
@@ -87,10 +88,10 @@ public class TwoDimensionalArrays {
         for(int i = 0; i < names.length; i++) {
             for (int j = 0; j < subjects.length; j++) {
 
-                System.out.println("What is " + names[i] +"'s grade in " +
-                        subjects[j] +"?");
-                int grade = s.nextInt();
-//                int grade = 90;
+//                System.out.println("What is " + names[i] +"'s grade in " +
+//                        subjects[j] +"?");
+//                int grade = s.nextInt();
+                int grade = (int)(Math.random()*30) + 70;
                 grades[i][j] = grade;
 
             }
@@ -99,11 +100,40 @@ public class TwoDimensionalArrays {
         //print table of grades
         for (int i = 0; i < grades.length; i++) {
             //names go here
+            System.out.print(names[i] + "\t");
+
             for (int j = 0; j < grades[0].length; j++) {
                 System.out.print(grades[i][j] + "\t");
             }
             System.out.println();
         }
-        //add labels: names on the left and subjects on the top
+
+
+        //calculate and print the average for each student
+        for (int i = 0; i < grades.length; i++) {
+            int sum = 0;
+            for (int j = 0; j < grades[0].length; j++) {
+                int score = grades[i][j];
+                sum += score;
+            }
+            int average = sum / grades[0].length;
+            System.out.println(names[i] + "'s grade average: " + average);
+        }
+
+        System.out.println();
+
+        //calculate and print the subject (column) averages
+        //to calculate column average, the outer loop should iterate through the
+        //columns, and the inner loop iterates through rows
+        for (int j = 0; j < grades[0].length; j++) {
+            int sum = 0;
+            for (int i = 0; i < grades.length; i++) {
+                sum += grades[i][j];
+            }
+            int avg = sum/grades.length;
+            System.out.println(subjects[j] +"'s avg grade: " + avg);
+
+        }
+
     }
 }
